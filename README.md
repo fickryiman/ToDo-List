@@ -31,9 +31,9 @@
 
 <!-- > Describe your project in 1 or 2 sentences. -->
 ### How to build the "To-do list" website?
-Project 1: List structure.
-Project 2: Interactive list.
-Project 3: Add and remove items.
+* Project 1: List structure.
+* Project 2: Interactive list.
+* Project 3: Add and remove items.
 
 Will start by building the core functionalities and ignoring how the website looks. At the very beginning the website will look similar to the UI below. Note that it is plain HTML with no styling, but it will allow to add and remove books from the list!
 
