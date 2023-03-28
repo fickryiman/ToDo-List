@@ -191,7 +191,7 @@ To run the project, execute the following command:
 
 ```sh
   npm run build (production environment)
-  npm run dev (development environment)
+  npm start (development environment)
 ```
 
 
