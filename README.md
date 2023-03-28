@@ -94,7 +94,6 @@
 <details>
     <summary>Package, Library, Framework</summary>
       <ul>
-        <li>webpack's</li>
         <li><a href="https://webpack.js.org/guides/installation/#local-installation">webpack</a></li>
         <li><a href="https://github.com/webpack/webpack-cli">webpack cli</a></li>
         <li><a href="https://lodash.com/">lodash</a></li>
