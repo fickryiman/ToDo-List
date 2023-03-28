@@ -188,12 +188,10 @@ Install this project with:
 ### Usage
 
 To run the project, execute the following command:
-run live server
-
 
 ```sh
-  npm run build
-  npm run dev
+  npm run build (production environment)
+  npm run dev (development environment)
 ```
 
 
@@ -204,6 +202,10 @@ Run Github Actions Test
 ```sh
   npx stylelint "**/*.{css,scss}"
   npx eslint .
+
+  auto fix linter with --fix
+  npx stylelint "**/*.{css,scss}" --fix
+  npx eslint . --fix
 ```
 
 ### Deployment
