@@ -1,4 +1,4 @@
-<a name="readme-top"></a>
+<a name="readme-top">tool that helps to organize your day. It simply lists the things that you need to do and allows you to mark them as complete.</a>
 
 <h1>To-do List</h1>
 
@@ -191,7 +191,7 @@ To run the project, execute the following command:
 
 ```sh
   npm run build (production environment)
-  npm run dev (development environment)
+  npm start (development environment)
 ```
 
 
