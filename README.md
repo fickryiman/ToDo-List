@@ -182,7 +182,7 @@ Install this project with:
 
 ```sh
   cd my-project
-  node install
+  npm install
 ```
 
 ### Usage
