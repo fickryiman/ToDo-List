@@ -85,10 +85,26 @@
   <ul>
     <li><a href="https://www.json.org/json-en.html">JSON</a></li>
     <li><a href="http://es6-features.org/">ES6</a></li>
+    <li><a href="https://webpack.js.org/">Webpack</a></li>
     <!-- <li><a href=""> - </a></li>
     <li><a href=""> - </a></li> -->
   </ul>
 </details>
+
+<details>
+    <summary>Package, Library, Framework</summary>
+      <ul>
+        <li>webpack's</li>
+        <li><a href="https://webpack.js.org/guides/installation/#local-installation">webpack</a></li>
+        <li><a href="https://github.com/webpack/webpack-cli">webpack cli</a></li>
+        <li><a href="https://lodash.com/">lodash</a></li>
+        <li><a href="https://github.com/jantimon/html-webpack-plugin">html-webpack-plugin</a></li>
+        <li><a href="https://webpack.js.org/loaders/style-loader">style-loader</a></li>
+        <li><a href="https://webpack.js.org/loaders/css-loader">css-loader</a></li>
+        <li><a href="https://webpack.js.org/configuration/dev-server">webpack-dev-server</a></li>
+        <!-- <li><a href="https://www.figma.com/">Figma</a></li> -->
+      </ul>
+  </details>
 
 <!-- Features -->
 ### Tools i have used for this project <a name="tools"></a>
@@ -122,12 +138,11 @@
 ### Key Features <a name="key-features"></a>
 
 <!-- > Describe between 1-3 key features of the application. -->
-- Mobile First Approach
-- Responsive Website
-- Button Interactions (i.e. hover, etc.)
-- Attractive Images & Design
-- Modal/dialog
-- Dynamic page (data is retrieved from localstorage JSON)
+- Adding a new item.
+- Removing a selected item.
+- Marking a selected item as complete.
+- Removing all items marked as complete at once.
+- Reordering a selected item (as drag-and-drop) 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
