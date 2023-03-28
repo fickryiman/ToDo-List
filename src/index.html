@@ -4,9 +4,34 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webpack Exercise</title>
+  <title>To-do List Apps</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Hello webpack!</h1>
+  <h1 class="apps-title">My To-Do List</h1>
+  <div class="container">
+    <section class="stats">
+      <h3 class="title">Today's To Do</h3>
+      <a class="a-reset-img">
+        <input class="reset-img" id="refresh-button" type="submit" value="">
+      </a>
+    </section>
+    <hr>
+    <section class="input">
+      <form action="#" method="post" class="input-form" id="form-add-todo">
+        <input id="new-todo" type="text" placeholder="Add to your list...">
+        <input id="submit-new-todo" type="submit" value="">
+      </form>
+    </section>
+    <hr>
+
+    <!-- dynamic load -->
+    <section class="container-todo-lists">
+      <!-- retrieved by dynamic from json at index.js -->
+    </section>
+    <section class="clear-all">
+      <a class="a-clear-all-completed">Clear all completed</a>
+    </section>
+  </div>
 </body>
 </html>
