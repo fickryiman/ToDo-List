@@ -236,11 +236,10 @@ https://fickryiman.github.io/ToDo-List/
 ## 🔭 Future Features <a name="future-features"></a>
 
 <!-- > Describe 1 - 3 features you will add to the project. -->
-- Dynamic content
-- Add functionality of Javascript
-- Add list of my recent works / projects
-- Store data to database
-- Adding my blog related with my work experiences
+- add login to user with social media auth or google auth
+- create mobile version
+- create time completion and alarm
+- Store data to realtime database
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
