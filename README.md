@@ -101,7 +101,6 @@
         <li><a href="https://webpack.js.org/loaders/style-loader">style-loader</a></li>
         <li><a href="https://webpack.js.org/loaders/css-loader">css-loader</a></li>
         <li><a href="https://webpack.js.org/configuration/dev-server">webpack-dev-server</a></li>
-        <!-- <li><a href="https://www.figma.com/">Figma</a></li> -->
       </ul>
   </details>
 
@@ -149,7 +148,7 @@
 ## 🚀 Live Demo <a name=""></a>
 
 <!-- > Add a link to your deployed project. -->
-- Click the following url for [... Live Demo ...](https://fickryiman.github.io/awesome-books/)
+- Click the following url for [... Live Demo ...](https://fickryiman.github.io/ToDo-List/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -164,7 +163,7 @@ To get a local copy up and running, follow these steps.
 In order to run this project you need:
 - git version 2.38.x
 - node.js version > 12.x
-- IDE
+- IDE (visual studio code, etc)
 - browser (chrome, firefox, edge, safari)
 
 ### Setup
@@ -173,7 +172,7 @@ Clone this repository to your desired folder:
 
 ```sh
   cd my-folder
-  git git@github.com:fickryiman/awesome-books.git
+  git git@github.com:fickryiman/ToDo-List.git
 ```
 
 
@@ -191,11 +190,12 @@ Install this project with:
 To run the project, execute the following command:
 run live server
 
-<!--
+
 ```sh
-  rails server
+  npm run build
+  npm run dev
 ```
--->
+
 
 ### Run tests
 
@@ -212,7 +212,7 @@ You can deploy this project using:
 GitHub Pages
 Example:
 ```sh
-git@github.com:fickryiman/awesome-books.git
+https://fickryiman.github.io/ToDo-List/
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -247,7 +247,7 @@ git@github.com:fickryiman/awesome-books.git
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [git@github.com:fickryiman/awesome-books.git](../../issues/).
+Feel free to check the [https://github.com/fickryiman/ToDo-List/issues](../../issues/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
