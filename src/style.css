@@ -138,6 +138,13 @@ h6 {
   justify-content: end;
 }
 
+.todo-list-add-delete {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  background: rgba(236, 220, 203, 0.905);
+}
+
 .todo-checkbox {
   margin: 0.2vw 1vw;
   cursor: pointer;
@@ -148,6 +155,31 @@ h6 {
   align-self: center;
   text-align: start;
   margin: 1vw 0;
+  outline: none;
+  border: none;
+  pointer-events: none;
+}
+
+.todo-description-edit {
+  width: 100%;
+  align-self: center;
+  text-align: start;
+  margin: 1vw 0;
+  outline: none;
+  border: none;
+  pointer-events: auto;
+  background: rgba(236, 220, 203, 0.905);
+}
+
+.todo-description-status {
+  width: 100%;
+  align-self: center;
+  text-align: start;
+  margin: 1vw 0;
+  outline: none;
+  border: none;
+  pointer-events: none;
+  text-decoration:line-through rgb(237, 101, 101);
 }
 
 .a-todo-options {
