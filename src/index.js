@@ -1,67 +1,96 @@
 import './style.css';
 
-const tasks = [
-  {
-    index: 1,
-    description: 'setup project with webpack',
-    completed: false,
-  },
-  {
-    index: 2,
-    description: 'setup linter and github flow',
-    completed: false,
-  },
-  {
-    index: 3,
-    description: 'finishing project 1: List structure',
-    completed: false,
-  },
-];
+const todoListsContainer = document.querySelector('.container-todo-lists');
 
-function createToDoComponent(i) {
-  const wrapper = document.createElement('div');
-  wrapper.classList.add('wrap-todo-list');
-  // wrapper.setAttribute('data-index', `${i+1}`);
-  const todoList = document.createElement('div');
-  todoList.classList.add('todo-list');
-  const checkbox = document.createElement('input');
-  checkbox.setAttribute('type', 'checkbox');
-  checkbox.classList.add('todo-checkbox');
-  checkbox.setAttribute('id', `todo-${i + 1}`);
-  checkbox.setAttribute('name', `todo-${i + 1}`);
-  const desc = document.createElement('label');
-  desc.setAttribute('for', `todo-${i + 1}`);
-  desc.classList.add('todo-description');
-  desc.setAttribute('data-index', `${i + 1}`);
-  const aTodoOptions = document.createElement('a');
-  aTodoOptions.classList.add('a-todo-options');
-  const imgDots = document.createElement('img');
-  imgDots.setAttribute('src', '../icons/dots1.png');
-  imgDots.classList.add('todo-options');
-  const todoHr = document.createElement('hr');
+// localStorage initialize
+let tasks = JSON.parse(localStorage.getItem('TODOS')) || [];
 
-  aTodoOptions.appendChild(imgDots);
+const addTodoForm = document.getElementById('form-add-todo');
+const newTodo = document.getElementById('new-todo');
 
-  todoList.appendChild(checkbox);
-  todoList.appendChild(desc);
-  todoList.appendChild(aTodoOptions);
-
-  wrapper.appendChild(todoList);
-  wrapper.appendChild(todoHr);
-
-  document.querySelector('.container-todo-lists').appendChild(wrapper);
+// create new todo
+const createTodo = description => {
+  const newTodo = {
+    index: tasks.length + 1,
+    description,
+    isCompleted: false,
+  };
+  tasks.push(newTask);
+  localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-const iterateTasks = (arr) => {
-  arr.forEach((object, index) => {
-    createToDoComponent(index);
+// delete a todo
+const deleteTodo = (index) => {
+  tasks = tasks.filter((todo, ref) => ref !== +index);
+  tasks = tasks.map((task, index) => ({ ...task, index: index+1 }));
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+}
 
-    Object.keys(object).forEach((key) => {
-      if (key === 'description') {
-        document.querySelector(`[data-index="${index + 1}"]`).textContent = `${object[key]}`;
+// update a todo
+const updateTodo = (index, newDescription) => {
+  tasks[index].description = newDescription;
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+const generateTodos = () => {
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+addTodoForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const index = localStorage.getItem('TODOS') === null ? 1 : JSON.parse(localStorage.getItem('TODOS')).length + 1;
+  const description = newTodo.value;
+  const isCompleted = false;
+  const todo = Todo(index, description, isCompleted);
+
+  if (description) {
+    TodoCRUD.createTodo(todo);
+    Interface.renderTodos();
+    addTodoForm.reset();
+  }
+});
+
+// remove todo
+todoListsContainer.addEventListener('click', (event1) => {
+  event1.preventDefault();
+  const todoIndex1 = event1.target.dataset.index;
+  console.log(todoIndex1)
+
+  if (event1.target.matches('.todo-options')) {
+    event1.target.classList = 'delete-option';
+
+    todoListsContainer.addEventListener('click', (event2) => {
+
+      const todoIndex2 = event2.target.dataset.index;
+      console.log(`second clicked: ${todoIndex2}`)
+
+      event2.preventDefault();
+      if (event2.target.dataset.index !== event1.target.dataset.index) {
+        event1.target.classList = 'todo-options';
+        event2.target.classList = 'delete-option';
+      } else if (event2.target.dataset.index === event1.target.dataset.index) {
+        if (event2.target.matches('.delete-option')) {
+          event1.target.classList = 'todo-options';
+          TodoCRUD.deleteTodo(todoIndex2);
+          Interface.renderTodos();
+        }
       }
     });
-  });
-};
+  }
+});
 
-iterateTasks(tasks);
+
