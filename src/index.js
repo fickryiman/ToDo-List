@@ -25,7 +25,6 @@ const TodoCRUD = {
       return temporaryStorage;
     });
     localStorage.setItem('TODOS', JSON.stringify(tasks));
-    // next what?
   },
   updateTodoDescription: (index, event) => {
     let tasks = TodoCRUD.readTodos();
@@ -33,12 +32,11 @@ const TodoCRUD = {
     tasks = tasks.map((task, i) => {
       const temporaryStorage = {};
       temporaryStorage.index = task.index;
-      temporaryStorage.description = (i === index - 1) ? event.target.value : task.description
+      temporaryStorage.description = (i === index - 1) ? event.target.value : task.description;
       temporaryStorage.completed = task.completed;
       return temporaryStorage;
     });
     localStorage.setItem('TODOS', JSON.stringify(tasks));
-    Interface.renderTodos();
   },
   deleteTodo: (index) => {
     let tasks = TodoCRUD.readTodos();
@@ -117,44 +115,39 @@ todoListsContainer.addEventListener('click', (event) => {
       event.target.nextElementSibling.classList = 'todo-description';
     }
     TodoCRUD.updateTodoCompletion(event.target.id.slice(-1));
-  };
+    Interface.renderTodos();
+  }
 
   // remove or update by clicking three dots first
   if (event.target.matches('.todo-options')) {
-    // console.log(event);
-    const Index = event.target.dataset.index;
     event.target.classList = 'delete-option';
     event.target.parentElement.parentElement.classList = 'todo-list-add-delete';
     event.target.parentElement.previousElementSibling.classList = 'todo-description-edit';
 
     todoListsContainer.addEventListener('click', (event2) => {
-      
       // update todo description
       if (event2.target.matches('.todo-description-edit')) {
         const index = event2.target.id.slice(-1);
 
         document.getElementById(`todo-desc-${index}`).addEventListener('change', () => {
-          TodoCRUD.updateTodoDescription(index, event2); 
+          TodoCRUD.updateTodoDescription(index, event2);
+          Interface.renderTodos();
         });
-      };
+      }
 
       // remove todo
       if (event2.target.matches('.delete-option')) {
-        // console.log(event2)
-        const index = event.target.dataset.index;
         const index2 = event2.target.dataset.index;
-        console.log(`index: ${index} --- index2: ${index2}`);
+
         if (event.target.dataset.index !== event2.target.dataset.index) {
           event.target.classList = 'todo-options';
           event.target.parentElement.parentElement.classList = 'todo-list';
           event.target.parentElement.previousElementSibling.classList = 'todo-description';
         } else {
-          console.log('DELETE IT');
-          TodoCRUD.deleteTodo(index2); 
-          location.reload();
+          TodoCRUD.deleteTodo(index2);
+          window.location.reload();
         }
-      } 
+      }
     });
-  };
-  
+  }
 });
