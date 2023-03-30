@@ -1,4 +1,4 @@
-import TodoCRUD from "./crud.js";
+import TodoCRUD from './crud.js';
 
 const Interface = {
   renderTodos: () => {
