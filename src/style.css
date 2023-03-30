@@ -171,7 +171,7 @@ h6 {
   background: rgba(236, 220, 203, 0.905);
 }
 
-.todo-description-status {
+.todo-description-false {
   width: 100%;
   align-self: center;
   text-align: start;
@@ -179,7 +179,8 @@ h6 {
   outline: none;
   border: none;
   pointer-events: none;
-  text-decoration:line-through rgb(237, 101, 101);
+  text-decoration:line-through black;
+  color: rgb(241, 23, 23);
 }
 
 .a-todo-options {
