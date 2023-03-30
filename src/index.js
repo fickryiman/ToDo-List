@@ -38,6 +38,7 @@ const TodoCRUD = {
       return temporaryStorage;
     });
     localStorage.setItem('TODOS', JSON.stringify(tasks));
+    Interface.renderTodos();
   },
   deleteTodo: (index) => {
     let tasks = TodoCRUD.readTodos();
@@ -108,7 +109,7 @@ addTodoForm.addEventListener('submit', (e) => {
 
 // update or remove todo
 todoListsContainer.addEventListener('click', (event) => {
-  // update by clicking the checkbox
+  // update completion status by clicking the checkbox
   if (event.target.matches('.todo-checkbox')) {
     if (event.target.checked) {
       event.target.nextElementSibling.classList = 'todo-description-false';
@@ -116,11 +117,11 @@ todoListsContainer.addEventListener('click', (event) => {
       event.target.nextElementSibling.classList = 'todo-description';
     }
     TodoCRUD.updateTodoCompletion(event.target.id.slice(-1));
-  }
+  };
 
   // remove or update by clicking three dots first
   if (event.target.matches('.todo-options')) {
-    console.log(event);
+    // console.log(event);
     const Index = event.target.dataset.index;
     event.target.classList = 'delete-option';
     event.target.parentElement.parentElement.classList = 'todo-list-add-delete';
@@ -139,12 +140,20 @@ todoListsContainer.addEventListener('click', (event) => {
 
       // remove todo
       if (event2.target.matches('.delete-option')) {
+        // console.log(event2)
+        const index = event.target.dataset.index;
+        const index2 = event2.target.dataset.index;
+        console.log(`index: ${index} --- index2: ${index2}`);
         if (event.target.dataset.index !== event2.target.dataset.index) {
           event.target.classList = 'todo-options';
           event.target.parentElement.parentElement.classList = 'todo-list';
           event.target.parentElement.previousElementSibling.classList = 'todo-description';
+        } else {
+          console.log('DELETE IT');
+          TodoCRUD.deleteTodo(index2); 
+          location.reload();
         }
-      }
+      } 
     });
   };
   
