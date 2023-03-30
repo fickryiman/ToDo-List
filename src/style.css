@@ -59,7 +59,7 @@ h6 {
 }
 
 .apps-title {
-  margin: 50px;
+  margin: 20px;
 }
 
 .container {
@@ -105,10 +105,12 @@ h6 {
   border: none;
   background: none;
   margin: 0.8vw 0 0.8vw 1vw;
+  font-style: italic;
 }
 
 #new-todo:focus {
   outline: none;
+  font-style: italic;
 }
 
 #submit-new-todo {
@@ -136,6 +138,13 @@ h6 {
   justify-content: end;
 }
 
+.todo-list-add-delete {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  background: rgba(236, 220, 203, 0.905);
+}
+
 .todo-checkbox {
   margin: 0.2vw 1vw;
   cursor: pointer;
@@ -146,6 +155,32 @@ h6 {
   align-self: center;
   text-align: start;
   margin: 1vw 0;
+  outline: none;
+  border: none;
+  pointer-events: none;
+}
+
+.todo-description-edit {
+  width: 100%;
+  align-self: center;
+  text-align: start;
+  margin: 1vw 0;
+  outline: none;
+  border: none;
+  pointer-events: auto;
+  background: rgba(236, 220, 203, 0.905);
+}
+
+.todo-description-false {
+  width: 100%;
+  align-self: center;
+  text-align: start;
+  margin: 1vw 0;
+  outline: none;
+  border: none;
+  pointer-events: none;
+  text-decoration: line-through black;
+  color: rgb(241, 23, 23);
 }
 
 .a-todo-options {
@@ -167,6 +202,18 @@ h6 {
   filter: invert(42%) sepia(0%) saturate(1%) hue-rotate(94deg) brightness(92%) contrast(85%);
 }
 
+.delete-option {
+  /* width: 100%; */
+  height: 50%;
+  background: url('../icons/trash.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  border: none;
+  margin: 1vw 1vw 0 0;
+  padding: 0.5vw 1vw 0.5vw 1vw;
+  cursor: pointer;
+}
+
 .clear-all {
   padding: 1vw;
   background-color: #e9e9e9;
@@ -175,5 +222,5 @@ h6 {
 .a-clear-all-completed {
   color: rgb(133, 134, 139);
   cursor: pointer;
-  padding: 1vw 10vw;
+  padding: 1vw 1vw;
 }
