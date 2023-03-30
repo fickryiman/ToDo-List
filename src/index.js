@@ -50,7 +50,7 @@ const TodoCRUD = {
     tasks = tasks.filter((todo) => !todo.completed);
 
     localStorage.setItem('TODOS', JSON.stringify(tasks));
-  }
+  },
 };
 
 const Interface = {
@@ -156,4 +156,4 @@ todoListsContainer.addEventListener('click', (event) => {
 document.querySelector('.a-clear-all-completed').addEventListener('click', () => {
   TodoCRUD.deleteCompletedTodo();
   Interface.renderTodos();
-})
+});
