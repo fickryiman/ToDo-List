@@ -42,16 +42,15 @@ const TodoCRUD = {
     let tasks = TodoCRUD.readTodos();
     tasks = tasks.filter((todo, ref) => ref !== +index);
     tasks = tasks.map((task, index) => ({ ...task, index: index + 1 }));
-    // const indexing = tasks.map(todo => {
-    //   const temporaryStorage = {};
-    //   temporaryStorage.index = todo.index > index ? todo.index - 1 : todo.index;
-    //   temporaryStorage.description = todo.description;
-    //   temporaryStorage.completed = todo.completed;
-    //   return temporaryStorage;
-    // });
 
     localStorage.setItem('TODOS', JSON.stringify(tasks));
   },
+  deleteCompletedTodo: () => {
+    let tasks = TodoCRUD.readTodos();
+    tasks = tasks.filter((todo) => !todo.completed);
+
+    localStorage.setItem('TODOS', JSON.stringify(tasks));
+  }
 };
 
 const Interface = {
@@ -146,8 +145,15 @@ todoListsContainer.addEventListener('click', (event) => {
         } else {
           TodoCRUD.deleteTodo(index2);
           window.location.reload();
+          Interface.renderTodos();
         }
       }
     });
   }
 });
+
+// clear all completed (true) todo
+document.querySelector('.a-clear-all-completed').addEventListener('click', () => {
+  TodoCRUD.deleteCompletedTodo();
+  Interface.renderTodos();
+})
