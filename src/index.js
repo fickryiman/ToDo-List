@@ -32,7 +32,7 @@ todoListsContainer.addEventListener('click', (event) => {
       event.target.nextElementSibling.classList = 'todo-description-false';
     } else {
       event.target.nextElementSibling.classList = 'todo-description';
-    } 
+    }
     TodoCRUD.updateTodoCompletion(event.target.id.slice(-1));
     Interface.renderTodos();
   }
