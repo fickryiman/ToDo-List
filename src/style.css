@@ -179,7 +179,7 @@ h6 {
   outline: none;
   border: none;
   pointer-events: none;
-  text-decoration:line-through black;
+  text-decoration: line-through black;
   color: rgb(241, 23, 23);
 }
 

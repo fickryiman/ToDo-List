@@ -16,24 +16,24 @@ const TodoCRUD = {
   },
   updateTodoCompletion: (index) => {
     let tasks = TodoCRUD.readTodos();
-    
-    tasks = tasks.map((task, i) => { 
-      let temporaryStorage = {};
+
+    tasks = tasks.map((task, i) => {
+      const temporaryStorage = {};
       temporaryStorage.index = task.index;
       temporaryStorage.description = task.description;
-      temporaryStorage.completed = (i === index-1) ? !task.completed : task.completed;
+      temporaryStorage.completed = (i === index - 1) ? !task.completed : task.completed;
       return temporaryStorage;
     });
     localStorage.setItem('TODOS', JSON.stringify(tasks));
     // next what?
   },
-  updateTodoDescription: (val) => {
+  updateTodoDescription: (index, event) => {
     let tasks = TodoCRUD.readTodos();
-    
-    tasks = tasks.map((task, i) => { 
-      let temporaryStorage = {};
+
+    tasks = tasks.map((task, i) => {
+      const temporaryStorage = {};
       temporaryStorage.index = task.index;
-      temporaryStorage.description = task.description;
+      temporaryStorage.description = (i === index - 1) ? event.target.value : task.description
       temporaryStorage.completed = task.completed;
       return temporaryStorage;
     });
@@ -50,20 +50,20 @@ const TodoCRUD = {
     //   temporaryStorage.completed = todo.completed;
     //   return temporaryStorage;
     // });
-    
+
     localStorage.setItem('TODOS', JSON.stringify(tasks));
-  }
+  },
 };
 
 const Interface = {
   renderTodos: () => {
     const todoListsContainer = document.querySelector('.container-todo-lists');
     const tasks = TodoCRUD.readTodos();
-    todoListsContainer.innerHTML = tasks.map((todo, index) => (todo.completed) ? ` 
+    todoListsContainer.innerHTML = tasks.map((todo, index) => ((todo.completed) ? ` 
                             <div class="wrap-todo-list"">
                               <div class="todo-list"">
                                 <input type="checkbox" class="todo-checkbox" id="todo-${index + 1}" name="todo-${index + 1}" checked>
-                                <input for="todo-${index + 1}" class="todo-description-false" desc-index="${index + 1}" value="${todo.description}" onchange="changeDesc(this.value)"></input>
+                                <input id="todo-desc-${index + 1}" class="todo-description-false" desc-index="${index + 1}" value="${todo.description}"></input>
                                 <a class="a-todo-options">
                                   <img src="../icons/dots1.png" class="todo-options" data-index="${index}">
                                 </a>
@@ -74,14 +74,14 @@ const Interface = {
                             <div class="wrap-todo-list"">
                               <div class="todo-list"">
                                 <input type="checkbox" class="todo-checkbox" id="todo-${index + 1}" name="todo-${index + 1}">
-                                <input for="todo-${index + 1}" class="todo-description" desc-index="${index + 1}" value="${todo.description}" onchange="changeDesc(this.value)"></input>
+                                <input id="todo-desc-${index + 1}" class="todo-description" desc-index="${index + 1}" value="${todo.description}"></input>
                                 <a class="a-todo-options">
                                   <img src="../icons/dots1.png" class="todo-options" data-index="${index}">
                                 </a>
                               </div>
                               <hr>
                             </div>
-                          `).join('');
+                          `)).join('');
   },
 };
 
@@ -106,14 +106,10 @@ addTodoForm.addEventListener('submit', (e) => {
   }
 });
 
-
-
 // update or remove todo
 todoListsContainer.addEventListener('click', (event) => {
-  
   // update by clicking the checkbox
   if (event.target.matches('.todo-checkbox')) {
-    event.target.checked = event.target.checked;
     if (event.target.checked) {
       event.target.nextElementSibling.classList = 'todo-description-false';
     } else {
@@ -121,39 +117,35 @@ todoListsContainer.addEventListener('click', (event) => {
     }
     TodoCRUD.updateTodoCompletion(event.target.id.slice(-1));
   }
-  
-  // remove or update by clicking three dots
+
+  // remove or update by clicking three dots first
   if (event.target.matches('.todo-options')) {
-    console.log(event)
-    const todoIndex = event.target.dataset.index;
+    console.log(event);
+    const Index = event.target.dataset.index;
     event.target.classList = 'delete-option';
     event.target.parentElement.parentElement.classList = 'todo-list-add-delete';
     event.target.parentElement.previousElementSibling.classList = 'todo-description-edit';
-    
-    if (event.target.parentElement.previousElementSibling.matches('.todo-description-edit')) {
-      
-    };
-    // console.log(event.target.className);
-    // console.log(todoIndex1 !== index)
 
     todoListsContainer.addEventListener('click', (event2) => {
+      
+      // update todo description
+      if (event2.target.matches('.todo-description-edit')) {
+        const index = event2.target.id.slice(-1);
 
-      const todoIndex2 = event2.target.dataset.index;
+        document.getElementById(`todo-desc-${index}`).addEventListener('change', () => {
+          TodoCRUD.updateTodoDescription(index, event2); 
+        });
+      };
 
+      // remove todo
       if (event2.target.matches('.delete-option')) {
-        if (event.target.dataset.index !== todoIndex2) {
+        if (event.target.dataset.index !== event2.target.dataset.index) {
           event.target.classList = 'todo-options';
           event.target.parentElement.parentElement.classList = 'todo-list';
           event.target.parentElement.previousElementSibling.classList = 'todo-description';
         }
       }
-      
     });
   };
-
-  
-
   
 });
-
-
