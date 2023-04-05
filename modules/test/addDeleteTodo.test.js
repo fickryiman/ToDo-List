@@ -1,4 +1,4 @@
-const { todos, TodoCRUD } = require('./addDeleteTodo');
+const { todos, TodoCRUD } = require('./addDeleteTodo.js');
 
 describe('test add todo list', () => {
   test('createTodo function is exists?', () => {
@@ -14,5 +14,3 @@ describe('test add todo list', () => {
     expect(TodoCRUD.createTodo('finish exercise test part-3')).toEqual(todos.isCompleted);
   });
 });
-
-

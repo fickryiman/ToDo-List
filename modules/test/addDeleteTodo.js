@@ -2,9 +2,7 @@ let todos = [];
 
 const TodoCRUD = {
 
-  readTodos: () => {
-    return todos;
-  },
+  readTodos: () => todos,
   createTodo: (desc) => {
     todos.push({
       index: todos.length + 1,
@@ -20,9 +18,7 @@ const TodoCRUD = {
   resetTodo: () => {
     todos = [];
     return todos;
-  }
+  },
 };
 
 module.exports = { todos, TodoCRUD };
-
-TodoCRUD.resetTodo();
