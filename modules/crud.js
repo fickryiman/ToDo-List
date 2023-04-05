@@ -1,6 +1,7 @@
 const TodoCRUD = {
+
   readTodos: () => {
-    const tasks = localStorage.getItem('TODOS') === null ? [] : JSON.parse(localStorage.getItem('TODOS'));
+    const tasks = JSON.parse(localStorage.getItem('TODOS')) || [];
     return tasks;
   },
   createTodo: (todo) => {
