@@ -15,4 +15,13 @@ describe('test add todo list', () => {
   });
 });
 
+describe('test delete todo list', () => {
+  test('delete function is exists?', () => {
+    expect(TodoCRUD.deleteTodo).toBeDefined();
+  });
 
+  it('should be delete an item from todo list', () => {
+    const existingTodo = TodoCRUD.deleteTodo(1);
+    expect(TodoCRUD.deleteTodo(0)).toEqual(TodoCRUD.readTodos());
+  });
+});
