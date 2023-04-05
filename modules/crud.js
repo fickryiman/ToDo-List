@@ -48,4 +48,4 @@ const TodoCRUD = {
   },
 };
 
-module.exports = TodoCRUD;
+export default TodoCRUD;
