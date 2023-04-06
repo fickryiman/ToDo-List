@@ -1,5 +1,5 @@
-const { todos, TodoCD } = require('./addDeleteTodo');
-const TodoRU = require('./editUpdateClearTodo');
+const { todos, TodoCD } = require('./addDeleteTodo.js');
+const TodoRU = require('./editUpdateClearTodo.js');
 
 describe('test update todo list description by index number', () => {
   TodoCD.createTodo('task-1');

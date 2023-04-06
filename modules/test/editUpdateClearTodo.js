@@ -1,4 +1,4 @@
-let { todos, TodoCD } = require('./addDeleteTodo.js');
+let { todos } = require('./addDeleteTodo.js');
 // const { TodoCD } = require('./addDeleteTodo.js');
 
 // let todos = [
@@ -14,18 +14,18 @@ let { todos, TodoCD } = require('./addDeleteTodo.js');
 
 const TodoRU = {
   updateTodoDescription: (index, newDesc) => {
-    todos = todos.map((task, i) => {
-      task.index = task.index;
-      task.description = (i === index - 1) ? newDesc : task.description;
-      task.isCompleted = task.isCompleted;
+    todos = todos.map((todo, i) => {
+      todo.index = todo.index || 1;
+      todo.description = (i === index - 1) ? newDesc : todo.description;
+      todo.isCompleted = todo.isCompleted || '';
       return todos;
     });
   },
   updateTodoCompletion: (index) => {
-    todos = todos.map((task, i) => {
-      task.index = task.index;
-      task.description = task.description;
-      task.isCompleted = (i === index - 1) ? !task.isCompleted : task.isCompleted;
+    todos = todos.map((todo, i) => {
+      todo.index = todo.index || 1;
+      todo.description = todo.description || '';
+      todo.isCompleted = (i === index - 1) ? !todo.isCompleted : todo.isCompleted;
       return todos;
     });
   },
