@@ -1,6 +1,6 @@
 let todos = [];
 
-const TodoCRUD = {
+const TodoCD = {
 
   readTodos: () => todos,
   createTodo: (desc) => {
@@ -21,4 +21,4 @@ const TodoCRUD = {
   },
 };
 
-module.exports = { todos, TodoCRUD };
+module.exports = { todos, TodoCD };
