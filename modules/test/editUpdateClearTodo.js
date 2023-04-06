@@ -15,7 +15,7 @@ let { todos, TodoCD } = require('./addDeleteTodo.js');
 const TodoRU = {
   updateTodoDescription: (index, newDesc) => {
     todos = todos.map((task, i) => {
-      task.index = task.index
+      task.index = task.index;
       task.description = (i === index - 1) ? newDesc : task.description;
       task.isCompleted = task.isCompleted;
       return todos;
